@@ -14,6 +14,7 @@ import { InputTextModule } from 'primeng/inputtext';
 import { CheckboxModule } from 'primeng/checkbox';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { ButtonModule } from 'primeng/button';
     CheckboxModule,
     TableModule,
     ButtonModule,
+    HttpClientModule
   ],
   providers: [DadosService],
   bootstrap: [AppComponent]

@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./lista.component.css']
 })
 export class ListaComponent implements OnInit{
-  dadosFormulario: Dados[] = [];
-  carregando = true;
+  dadosFormulario: any[] = [];
+  dadoSelecionado?: any;
 
   constructor(private dadosService: DadosService, private router: Router) {
 
@@ -22,11 +22,11 @@ export class ListaComponent implements OnInit{
   }
 
   onListar(): void {
-    this.dadosFormulario = this.dadosService.getDados()
-  }
-
-  editarDados(dado: Dados): void {
-    this.dadosService.editarDados(dado);
+    this.dadosService.getDados().subscribe({
+      next: (resultado: any) => (this.dadosFormulario = resultado),
+      error: (erro: any) => console.log(erro),
+      complete: () => console.log('completo')
+    });
   }
 
   deletarDados(dado: Dados): void {

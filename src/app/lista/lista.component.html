@@ -1,26 +1,27 @@
 <h2>Lista dos carros cadastrados</h2>
-<p-button styleClass="p-button-link" (click)="cadastrar()"> Cadastrar</p-button>
-<table class="table">
+<p-button styleClass="p-button-link" (click)="cadastrar()">Cadastrar/Editar</p-button>
+<table>
     <thead>
         <tr>
-            <th>Modelo do carro</th>
+            <th >Modelo do carro</th>
+            <th >Marca do carro</th>
             <th >Ano do carro</th>
             <th >Nome do aluno/servidor</th>
             <th >Matrícula</th>
             <th >Código da etiqueta</th>
-            <th >CNH válida</th>
+            <th>CNH válida</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let dados of dadosFormulario">
             <td> {{ dados.modelo }} </td>
+            <td> {{ dados.marca }}</td>
             <td> {{ dados.ano }} </td>
             <td> {{ dados.nome }} </td>
             <td> {{ dados.matricula }} </td>
             <td> {{ dados.codigo }} </td>
             <td> {{ dados.cnh }} </td>
             <td>
-                <button (click)="editarDados(dados)">Editar</button>
                 <button (click)="deletarDados(dados)">Excluir</button>
             </td>
         </tr>
