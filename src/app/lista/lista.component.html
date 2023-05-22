@@ -1,22 +1,28 @@
-<p-table>
-    <ng-template p-template="header">
+<h2>Lista dos carros cadastrados</h2>
+<p-button styleClass="p-button-link" (click)="cadastrar()"> Cadastrar</p-button>
+<table class="table">
+    <thead>
         <tr>
             <th>Modelo do carro</th>
-            <th>Ano do carro</th>
-            <th>Nome do aluno/servidor</th>
-            <th>Matrícula</th>
-            <th>Código da etiqueta</th>
-            <th>CNH válida</th>
+            <th >Ano do carro</th>
+            <th >Nome do aluno/servidor</th>
+            <th >Matrícula</th>
+            <th >Código da etiqueta</th>
+            <th >CNH válida</th>
         </tr>
-    </ng-template>
-    <ng-template p-template="body">
-        <tr *ngFor="let dado of dadosFormulario">
-            <td> {{ dado.modelo }} </td>
-            <td> {{ dado.ano }} </td>
-            <td> {{ dado.nome }} </td>
-            <td> {{ dado.matricula }} </td>
-            <td> {{ dado.codigo }} </td>
-            <td> {{ dado.cnh }} </td>
+    </thead>
+    <tbody>
+        <tr *ngFor="let dados of dadosFormulario">
+            <td> {{ dados.modelo }} </td>
+            <td> {{ dados.ano }} </td>
+            <td> {{ dados.nome }} </td>
+            <td> {{ dados.matricula }} </td>
+            <td> {{ dados.codigo }} </td>
+            <td> {{ dados.cnh }} </td>
+            <td>
+                <button (click)="editarDados(dados)">Editar</button>
+                <button (click)="deletarDados(dados)">Excluir</button>
+            </td>
         </tr>
-    </ng-template>
-</p-table>
+    </tbody>
+</table>

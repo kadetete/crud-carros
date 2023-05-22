@@ -1,32 +1,30 @@
 <h1>Cadastro de dados</h1>
-<form>
-    <table>
-        <tr>
-            <td><label htmlFor="modelo">Modelo do carro: </label></td>
-            <td><input pInputText class="p-inputtext-sm" id="modelo" [(ngModel)]="dado.modelo"></td>
-        </tr>
-        <tr>
-            <td><label htmlFor="ano">Ano do carro: </label></td>
-            <td><input pInputText class="p-inputtext-sm" id="ano" [(ngModel)]="dado.ano"></td>
-        </tr>
-        <tr>
-            <td><label htmlFor="nome">Nome completo do aluno: </label></td>
-            <td><input pInputText class="p-inputtext-sm" id="nome" [(ngModel)]="dado.nome"></td>
-        </tr>
-        <tr>
-            <td><label htmlFor="matricula">Matrícula: </label></td>
-            <td><input pInputText class="p-inputtext-sm" id="matricula" [(ngModel)]="dado.matricula"></td>
-        </tr>
-        <tr>
-            <td><label htmlFor="codigo">Código da etiqueta: </label></td>
-            <td><input pInputText class="p-inputtext-sm" id="codigo" [(ngModel)]="dado.codigo"></td>
-        </tr>
-        <tr>
-            <td><label htmlFor="cnh">CNH é válida?</label></td>
-            <td><p-checkbox [(ngModel)]="dado.cnh" [binary]="true" inputId="cnh"></p-checkbox></td>
-        </tr>
-        <tr>
-            <td><p-button (click)="addDados()">Enviar</p-button></td>
-        </tr>
-    </table>
-</form>
+<table>
+    <tr>
+        <td><label htmlFor="modelo">Modelo do carro: </label></td>
+        <td><input pInputText class="p-inputtext-sm" id="modelo" [(ngModel)]="dado.modelo"></td>
+    </tr>
+    <tr>
+        <td><label htmlFor="ano">Ano do carro: </label></td>
+        <td><input pInputText class="p-inputtext-sm" id="ano" [(ngModel)]="dado.ano"></td>
+    </tr>
+    <tr>
+        <td><label htmlFor="nome">Nome completo do aluno: </label></td>
+        <td><input pInputText class="p-inputtext-sm" id="nome" [(ngModel)]="dado.nome"></td>
+    </tr>
+    <tr>
+        <td><label htmlFor="matricula">Matrícula: </label></td>
+        <td><input pInputText class="p-inputtext-sm" id="matricula" [(ngModel)]="dado.matricula"></td>
+    </tr>
+    <tr>
+        <td><label htmlFor="codigo">Código da etiqueta: </label></td>
+        <td><input pInputText class="p-inputtext-sm" id="codigo" [(ngModel)]="dado.codigo"></td>
+    </tr>
+    <tr>
+        <td><label htmlFor="cnh">CNH é válida?</label></td>
+        <td><p-checkbox [(ngModel)]="dado.cnh" [binary]="true" inputId="cnh"></p-checkbox></td>
+    </tr>
+    <tr>
+        <td><p-button (click)="addDados()">Enviar</p-button></td>
+    </tr>
+</table>
