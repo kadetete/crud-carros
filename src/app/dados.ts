@@ -1,6 +1,7 @@
 export interface Dados {
 
-    modelo: string;
+    modelo: any;
+    marca: any;
     ano: any;
     nome: any;
     matricula: any;

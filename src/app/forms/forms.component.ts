@@ -10,7 +10,7 @@ import { DadosService } from '../dados.service';
 })
 
 export class FormsComponent{
-  dado: Dados = {modelo: '', ano: '', nome: '', matricula: '', codigo: '', cnh: ''};
+  dado: Dados = {modelo: '', marca: '', ano: '', nome: '', matricula: '', codigo: '', cnh: ''};
 
   constructor(private dadosService: DadosService, private router: Router) {
 
@@ -18,7 +18,7 @@ export class FormsComponent{
 
   addDados() {
     this.dadosService.addDados(this.dado);
-    this.dado = {modelo: '', ano: '', nome: '', matricula: '', codigo: '', cnh: ''};
+    this.dado = {modelo: '', marca: '', ano: '', nome: '', matricula: '', codigo: '', cnh: ''};
     this.router.navigate(['/lista']);
   }
 

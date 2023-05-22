@@ -1,5 +1,9 @@
 <h1>Cadastro de dados</h1>
-<table>
+<table class="forms">
+    <tr>
+        <td><label htmlFor="marca">Marca do carro: </label></td>
+        <td><input pInputText class="p-inputtext-sm" id="marca" [(ngModel)]="dado.marca"></td>
+    </tr>
     <tr>
         <td><label htmlFor="modelo">Modelo do carro: </label></td>
         <td><input pInputText class="p-inputtext-sm" id="modelo" [(ngModel)]="dado.modelo"></td>

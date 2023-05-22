@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Dados } from './dados';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -7,25 +8,57 @@ import { Dados } from './dados';
 export class DadosService {
   private dados: Dados[] = [];
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  addDados(dado: Dados) {
-    this.dados.push(dado);
+  getDados() {
+    return this.http.get('localhost:3000/alunocarro');
   }
 
-  getDados(): Dados[] {
-    console.log(this.dados);
-    return this.dados;
+  addDados(dado: Dados) {
+    let idcarro = this.http.get('localhost:3000/carrocount');
+    if (dado.cnh === true) {
+      dado.cnh = 1;
+    } else {
+      dado.cnh = 0;
+    }
+    let reqAluno = `{"noAluno": "${dado.nome}", "matriculaAluno": ${dado.matricula}}`;
+    let reqCarro = `{
+      "idCarro": ${idcarro},
+      "marcaCarro": "${dado.marca}",
+      "modeloCarro": "${dado.modelo}",
+      "anoCarro": ${dado.ano},
+      "codigoEtiqueta": "${dado.codigo}",
+      "validaCnh": ${dado.cnh},
+      "matriculaRel": ${dado.matricula}
+  }`;
+    this.http.post('localhost:3000/aluno', reqAluno);
+    this.http.post('localhost:3000/carro', reqCarro);
   }
 
   editarDados(dado: Dados): void {
-    const index = this.dados.findIndex(item => item === dado)
-    if (index !== -1) {
-      this.dados[index] = dado;
+    let idcarro = this.http.get('localhost:3000/carrocount');
+    if (dado.cnh === true) {
+      dado.cnh = 1;
+    } else {
+      dado.cnh = 0;
     }
+    let reqAluno = `{"noAluno": "${dado.nome}", "matriculaAluno": ${dado.matricula}}`
+    let reqCarro = `{
+      "idCarro": ${idcarro},
+      "marcaCarro": "${dado.marca}",
+      "modeloCarro": "${dado.modelo}",
+      "anoCarro": ${dado.ano},
+      "codigoEtiqueta": "${dado.codigo}",
+      "validaCnh": ${dado.cnh},
+      "matriculaRel": ${dado.matricula}
+    }`
+    this.http.put(`localhost:3000/aluno/${dado.matricula}`, reqAluno)
+    this.http.put(`localhost:3000/carro/${idcarro}`, reqCarro)
   }
 
   deletarDados(dado: Dados): void {
-    this.dados = this.dados.filter(item => item !== dado);
+    let idcarro = this.http.get('localhost:3000/carrocount');
+    this.http.delete(`localhost:3000/alunos/${dado.matricula}`);
+    this.http.delete(`localhost:3000/carro/${idcarro}`);
   }
 }
