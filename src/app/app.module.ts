@@ -7,13 +7,14 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ListaComponent } from './lista/lista.component';
 import { FormsComponent } from './forms/forms.component';
-import { Dados } from './forms/forms.model';
+import { DadosService } from './dados.service';
 
 /* Imports do primeng  */
 import { InputTextModule } from 'primeng/inputtext';
 import { CheckboxModule } from 'primeng/checkbox';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
+
 
 @NgModule({
   declarations: [
@@ -29,9 +30,9 @@ import { ButtonModule } from 'primeng/button';
     FormsModule,
     CheckboxModule,
     TableModule,
-    ButtonModule
+    ButtonModule,
   ],
-  providers: [Dados],
+  providers: [DadosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
