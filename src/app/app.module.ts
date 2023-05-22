@@ -7,10 +7,13 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ListaComponent } from './lista/lista.component';
 import { FormsComponent } from './forms/forms.component';
+import { Dados } from './forms/forms.model';
 
 /* Imports do primeng  */
 import { InputTextModule } from 'primeng/inputtext';
 import { CheckboxModule } from 'primeng/checkbox';
+import { TableModule } from 'primeng/table';
+import { ButtonModule } from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -24,9 +27,11 @@ import { CheckboxModule } from 'primeng/checkbox';
     RouterModule,
     InputTextModule,
     FormsModule,
-    CheckboxModule
+    CheckboxModule,
+    TableModule,
+    ButtonModule
   ],
-  providers: [],
+  providers: [Dados],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
