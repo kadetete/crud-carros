@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { Dados } from '../dados';
+import { concatMap } from 'rxjs';
 import { DadosService } from '../dados.service';
 import { Router } from '@angular/router';
 
@@ -30,7 +30,7 @@ export class ListaComponent implements OnInit{
   }
 
   deletarDados(matricula: number): void {
-    this.dadosService.deletarDados(matricula).subscribe({});
+    this.dadosService.deletarDados(matricula).subscribe({})
   }
 
   cadastrar(): void {
