@@ -23,7 +23,7 @@ export class ListaComponent implements OnInit{
 
   onListar(): void {
     this.dadosService.getDados().subscribe({
-      next: (resultado: any) => (this.dadosFormulario = resultado),
+      next: (resultado: any) => {(this.dadosFormulario = resultado), console.log(resultado)},
       error: (erro: any) => console.log(erro),
       complete: () => console.log('completo')
     });

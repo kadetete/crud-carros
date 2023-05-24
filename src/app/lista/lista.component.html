@@ -14,13 +14,13 @@
     </thead>
     <tbody>
         <tr *ngFor="let dados of dadosFormulario">
-            <td> {{ dados.modelo }} </td>
-            <td> {{ dados.marca }}</td>
-            <td> {{ dados.ano }} </td>
-            <td> {{ dados.nome }} </td>
-            <td> {{ dados.matricula }} </td>
-            <td> {{ dados.codigo }} </td>
-            <td> {{ dados.cnh }} </td>
+            <td> {{ dados.Modelo }} </td>
+            <td> {{ dados.Marca }}</td>
+            <td> {{ dados.Ano }} </td>
+            <td> {{ dados.Aluno }} </td>
+            <td> {{ dados.Matricula }} </td>
+            <td> {{ dados.codigoEtiqueta }} </td>
+            <td> {{ dados.CNHvalida }} </td>
             <td>
                 <button (click)="deletarDados(dados)">Excluir</button>
             </td>
