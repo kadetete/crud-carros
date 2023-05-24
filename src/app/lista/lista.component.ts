@@ -29,8 +29,8 @@ export class ListaComponent implements OnInit{
     });
   }
 
-  deletarDados(dado: Dados): void {
-    this.dadosService.deletarDados(dado);
+  deletarDados(matricula: number): void {
+    this.dadosService.deletarDados(matricula).subscribe({});
   }
 
   cadastrar(): void {

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Dados } from './dados';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, switchMap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -61,9 +61,14 @@ export class DadosService {
     this.http.put(`http://localhost:3000/alunocarro/carro/${idcarro}`, reqCarro)
   }
 
-  deletarDados(dado: Dados): void {
-    let idcarro = this.http.get('http://localhost:3000/alunocarro/carrocount');
-    this.http.delete(`http://localhost:3000/alunocarro/alunos/${dado.matricula}`);
-    this.http.delete(`http://localhost:3000/alunocarro/carro/${idcarro}`);
+  deletarDados(matricula: number): Observable<any> {
+    return this.http.get(`http://localhost:3000/alunocarro/carro/${matricula}`).pipe(
+      switchMap((resultado: any) => {
+        const idcarro = resultado;
+        return this.http.delete(`http://localhost:3000/alunocarro/carro/${idcarro}`).pipe(
+          switchMap(() => this.http.delete(`http://localhost:3000/alunocarro/aluno/${matricula}`))
+        );
+      })
+    );
   }
 }
