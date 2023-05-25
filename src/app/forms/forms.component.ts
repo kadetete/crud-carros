@@ -10,7 +10,7 @@ import { DadosService } from '../dados.service';
 })
 
 export class FormsComponent implements OnInit{
-  dado: Dados = {modelo: '', marca: '', ano: '', nome: '', matricula: '', codigo: '', cnh: ''};
+  dado: Dados = {modeloCarro: '', marcaCarro: '', anoCarro: '', aluno: '', matriculaAluno: '', codigoEtiqueta: '', CNHvalida: ''};
   matriculas: any[] = [];
 
   constructor(private dadosService: DadosService, private router: Router) {
@@ -22,22 +22,21 @@ export class FormsComponent implements OnInit{
       next: (resultado: any) => (this.matriculas = resultado),
       error: (erro: any) => console.log(erro)
     });
+    this.dado = {modeloCarro: '', marcaCarro: '', anoCarro: '', aluno: '', matriculaAluno: '', codigoEtiqueta: '', CNHvalida: ''};
   }
 
-  addDados() {
-    let num = 0
-    while (num <= this.matriculas.length) {
-      if (this.dado.matricula === this.matriculas[num]) {
-        this.dadosService.editarDados(this.dado).subscribe({});
-        return 'Editado';
-      }
-      num++
+  addDados(): void{
+    this.dadosService.addDados(this.dado).subscribe({
+        error: (erro: any) => console.log(erro)
+      });
+      this.router.navigate(['/lista']);
     }
-    this.dadosService.addDados(this.dado).subscribe({});
-    this.dado = {modelo: '', marca: '', ano: '', nome: '', matricula: '', codigo: '', cnh: ''};
-    this.router.navigate(['/lista']);
-    return 'Adicionado';
-  }
 
+    editarDados(): void {
+      this.dadosService.editarDados(this.dado).subscribe({
+        error: (erro: any) => console.log(erro)
+      });
+      this.router.navigate(['/lista']);
+    }
 }
 

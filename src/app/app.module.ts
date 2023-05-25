@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { NoopAnimationPlayer } from '@angular/animations';
 
 import { AppComponent } from './app.component';
 import { ListaComponent } from './lista/lista.component';
@@ -15,6 +16,7 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { HttpClientModule } from '@angular/common/http';
+import { InputNumberModule } from 'primeng/inputnumber';
 
 
 @NgModule({
@@ -32,7 +34,8 @@ import { HttpClientModule } from '@angular/common/http';
     CheckboxModule,
     TableModule,
     ButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    InputNumberModule
   ],
   providers: [DadosService],
   bootstrap: [AppComponent]
